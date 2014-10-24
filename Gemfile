@@ -77,3 +77,5 @@ gem 'pry-debugger', '~> 0.2.3', :group => :test
 gem 'figaro', '1.0'
 
 gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'faker'
