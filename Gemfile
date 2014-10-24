@@ -3,8 +3,22 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.10'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production do
+   gem 'pg'
+   gem 'rails_12factor'
+ end
+ 
+group :development do
+   gem 'sqlite3'
+   gem "better_errors"
+   gem 'binding_of_caller'
+ end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'capybara'
+  gem 'pry-rails'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -43,3 +57,21 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "unicorn-rails"
+
+gem 'devise'
+
+gem 'will_paginate', '~> 3.0.5'
+
+gem 'database_cleaner'
+
+gem 'pundit'
+
+gem 'redcarpet'
+
+gem 'factory_girl_rails', '~> 4.0'
+
+gem 'pry-debugger', '~> 0.2.3', :group => :test
+
+gem 'bootstrap-sass', '~> 3.1.1'
