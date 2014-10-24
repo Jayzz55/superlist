@@ -75,3 +75,5 @@ gem 'factory_girl_rails', '~> 4.0'
 gem 'pry-debugger', '~> 0.2.3', :group => :test
 
 gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'figaro', '1.0'
