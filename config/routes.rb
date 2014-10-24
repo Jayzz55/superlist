@@ -1,7 +1,9 @@
 Superlist::Application.routes.draw do
 
-get 'about' => 'welcome#about'
+  devise_for :users
 
-root to: 'welcome#index'
+  get 'about' => 'welcome#about'
+
+  root to: 'welcome#index'
 
 end
