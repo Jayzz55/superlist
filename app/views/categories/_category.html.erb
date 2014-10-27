@@ -2,6 +2,11 @@
   <div class="media-body">
     <h4 class="media-heading">
       <%= category.body %>
+      <%= link_to "Edit", edit_category_path(category), class: 'btn btn-success' %><br/>
     </h4>
+    <small>
+      <%= category.user.name %><br/>
+      <%= category.created_at %>
+    </small>
   </div>
 </div>

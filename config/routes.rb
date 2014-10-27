@@ -3,7 +3,7 @@ Superlist::Application.routes.draw do
   devise_for :users
     resources :users, only: [:update, :show]
 
-  resources :categories, only: [:index, :create, :destroy] do
+  resources :categories, except: [:show] do
     resources :todos, only: [:create, :destroy]
   end
 
