@@ -37,6 +37,19 @@ def update
   end
 end
 
+def destroy
+  @category = Category.find(params[:id])
+  authorize @category
+
+  if @category.destroy
+    flash[:notice] = "Category was deleted successfully."
+    redirect_to :action => "index"
+  else
+    flash[:error] = "There was an error deleting the category."
+    redirect_to :action => "index"
+  end
+end
+
 private
 
 def category_params
