@@ -20,11 +20,12 @@ users = User.all
 end
 categories = Category.all
 
-5.times do
+10.times do
   Todo.create!(
     user: users.sample,
     category: categories.sample,
-    body: Faker::Lorem.sentence
+    body: Faker::Lorem.sentence,
+    days_count: Time.now - 7.days
   )
 end
 

@@ -6,6 +6,12 @@ def index
   authorize @categories
 end
 
+def show
+  @category = Category.find(params[:id])
+  @todo = @category.todos  
+  @new_todo = current_user.todos.build
+end
+
 def edit
   @category = Category.find(params[:id])
   authorize @category
