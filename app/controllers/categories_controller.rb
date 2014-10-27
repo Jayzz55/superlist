@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
 def index
   @categories = Category.all
+  @new_category = current_user.categories.build
   authorize @categories
 end
 
@@ -11,12 +12,14 @@ def edit
 end
 
 def create
-  @category = Category.new(category_params)
+  @category = current_user.categories.build(category_params)
   authorize @category
   if @category.save
     flash[:notice] = "Category was saved."
+    redirect_to :action => "index"
   else
     flash[:error] = "There was an error saving the category. Please try again."
+    redirect_to :action => "index"
   end
 
 end

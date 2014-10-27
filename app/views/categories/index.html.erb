@@ -2,6 +2,10 @@
   <div class="col-md-4">
     <h1>Categories</h1>
     <%= render @categories %>
+    <br/>
+    <div class='new-category'>
+      <%= render partial: 'form', locals: { category: @new_category} %>
+    </div>
   </div>
   <div class="col-md-8">
   </div>
