@@ -1,13 +1,10 @@
-<div class="media">
-  <div class="media-body">
-    <h4 class="media-heading">
-      <%= todo.body %>
-      <%= link_to "Delete", [todo.category, todo], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this todo item?' } %> 
-      <br/>
-    </h4>
-    <small>
-      <%= todo.user.name %><br/>
-      <%= todo.created_at %>
-    </small>
-  </div>
-</div>
+<tbody>
+    <tr>
+      <% if todo.body %> 
+      <td><%= todo.body %></td>
+      <td><%= todo.days_left %></td>
+      <td><%= check_box_tag "todo_id[]", todo.id, todo.status %></td>
+      <td><%= link_to "Delete", [todo.user, todo], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this todo item?' } %></td>
+      <% end %>
+    </tr>
+</tbody>

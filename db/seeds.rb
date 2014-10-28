@@ -10,33 +10,35 @@ require 'faker'
   user.save!
 end
 
+# Create an admin user
+ admin = User.new(
+   name:     'Admin User',
+   email:    'admin@example.com',
+   password: 'helloworld',
+ )
+ admin.skip_confirmation!
+ admin.save!
+
+# Create me
+ member = User.new(
+   name:     'Jayzz55',
+   email:    'jayzzwijono@yahoo.com',
+   password: 'helloworld',
+ )
+ member.skip_confirmation!
+ member.save!
+
 users = User.all
 
-5.times do 
-  Category.create!(
-    user: users.sample,
-    body: Faker::Lorem.sentence
-  )
-end
-categories = Category.all
 
-10.times do
+20.times do
   Todo.create!(
     user: users.sample,
-    category: categories.sample,
     body: Faker::Lorem.sentence,
-    days_count: Time.now - 7.days
   )
 end
 
-
-User.first.update_attributes!(
-  name: 'admin',
-  email: 'admin@example.com',
-  password: 'helloworld'
-)
 
 puts "Seed finished"
 puts "#{User.count} users created"
-puts "#{Category.count} categories created"
 puts "#{Todo.count} todos created"

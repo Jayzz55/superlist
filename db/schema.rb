@@ -13,26 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20141024041703) do
 
-  create_table "categories", force: true do |t|
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
-
   create_table "todos", force: true do |t|
     t.text     "body"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "days_count"
-    t.boolean  "status",      default: false
+    t.boolean  "status",     default: false
   end
 
-  add_index "todos", ["category_id"], name: "index_todos_on_category_id"
   add_index "todos", ["user_id"], name: "index_todos_on_user_id"
 
   create_table "users", force: true do |t|
