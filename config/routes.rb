@@ -6,6 +6,12 @@ Superlist::Application.routes.draw do
     resources :todos, only: [:create, :destroy]
   end
 
+  resources :todos, only: [] do
+    collection do
+        delete 'destroy_multiple'
+      end
+  end
+
   get 'about' => 'welcome#about'
 
   root to: 'welcome#index'

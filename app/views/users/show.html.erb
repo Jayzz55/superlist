@@ -3,6 +3,7 @@
   </div>
   <div class="col-md-8 center">
   <h1>Superlist - Todo!</h1><br/>
+  <%= form_tag destroy_multiple_todos_path, method: :delete do %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,7 +15,8 @@
     </thead>
     <%= render partial: 'todos/todo', collection: @todos %>
   </table>
-
+  <%= submit_tag "Delete selected" %>
+  <% end %>
     
     
     <br/>

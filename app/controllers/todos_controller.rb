@@ -32,6 +32,11 @@ class TodosController < ApplicationController
 
    end
 
+  def destroy_multiple
+    Todo.destroy(params[:todos])
+    redirect_to current_user
+  end
+
   private
 
   def todo_params
