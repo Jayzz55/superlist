@@ -79,6 +79,6 @@ Superlist::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # http://jaya-bloccit.herokuapp.com/
-   config.action_mailer.default_url_options = { host: 'jaya-bloccit.herokuapp.com' }
+   config.action_mailer.default_url_options = { host: 'jaya-superlist.herokuapp.com' }
 
 end
