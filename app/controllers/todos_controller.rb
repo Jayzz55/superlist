@@ -10,10 +10,12 @@ class TodosController < ApplicationController
 
     if @todo.save
       flash[:notice] = "Todo was saved."
-      redirect_to current_user
     else
       flash[:error] = "There was an error saving the todo item. Please try again."
-      redirect_to current_user
+    end
+
+    respond_with(@todo) do |format|
+      format.html { redirect_to current_user }
     end
 
   end
@@ -35,7 +37,7 @@ class TodosController < ApplicationController
    end
 
   def destroy_multiple
-    @todo = Todo.destroy(params[:todos])
+    Todo.destroy(params[:todos])
     flash[:notice] = "Todo items were removed."
     redirect_to current_user
   end
