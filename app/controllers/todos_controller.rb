@@ -37,9 +37,14 @@ class TodosController < ApplicationController
    end
 
   def destroy_multiple
-    Todo.destroy(params[:todos])
-    flash[:notice] = "Todo items were removed."
-    redirect_to current_user
+    if Todo.destroy(params[:todos])
+      flash[:notice] = "Completed todo items were removed."
+      redirect_to current_user
+    else
+      flash[:error] = "Completed todo items couldn't be deleted. Try again."
+      redirect_to current_user
+    end
+
   end
 
   private
