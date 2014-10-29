@@ -24,16 +24,19 @@ class TodosController < ApplicationController
 
     if @todo.destroy
       flash[:notice] = "Todo item was removed."
-      redirect_to current_user
     else
-      flash[:error] = "Todo tiem couldn't be deleted. Try again."
-      redirect_to current_user
+      flash[:error] = "Todo item couldn't be deleted. Try again."
+    end
+
+    respond_with(@todo) do |format|
+      format.html { redirect_to current_user }
     end
 
    end
 
   def destroy_multiple
-    Todo.destroy(params[:todos])
+    @todo = Todo.destroy(params[:todos])
+    flash[:notice] = "Todo items were removed."
     redirect_to current_user
   end
 

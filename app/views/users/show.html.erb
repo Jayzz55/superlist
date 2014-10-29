@@ -13,7 +13,9 @@
         <th>Action</th>
       </tr>
     </thead>
-    <%= render partial: 'todos/todo', collection: @todos %>
+    <div class='js-todos'>
+      <%= render partial: 'todos/todo', collection: @todos %>
+    </div>
   </table>
   <%= submit_tag "Delete selected" %>
   <% end %>
