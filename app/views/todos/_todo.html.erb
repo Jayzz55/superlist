@@ -3,7 +3,8 @@
     <% if todo.body %>
       <td><%= todo.body %></td>
       <td><%= todo.days_left %></td>
-      <td><%= check_box_tag "todos[]", todo.id %></td>
+      
+      <td><input id="todo_<%=todo.id %>" name="todos[]" value="<%=todo.id %>"  type= "checkbox"  /></td>
       <td><%= link_to "Delete", [todo.user, todo], method: :delete, remote: true, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this todo item?' } %></td>
     <% end %>
   </tr>

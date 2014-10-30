@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :todo do
     body "MyText"
-category nil
+    user
   end
 
 end
