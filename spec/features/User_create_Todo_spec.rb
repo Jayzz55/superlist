@@ -175,18 +175,13 @@ describe 'custom-rake', focus: true do
       #check that the new todo item has been created
       expect(page).to have_content("Todo was saved.")
     
-      #Time travel to 8 days later
+      #Check that the days_left counter is working
       expect(page).to have_content(7)
-      new_time = Time.now + 8.days
+      new_time = Time.now + 7.days
       Timecop.travel(new_time)
       click_link 'My List'
-      
+      expect(page).to have_content(0)
 
-      #check that the marked completed todo items have been deleted
-      expect(page).to have_no_content("Go to market")
-      expect(page).to have_no_content("Another market")
-
-    
   end
 
 end
