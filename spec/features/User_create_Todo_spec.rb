@@ -177,13 +177,14 @@ describe 'custom-rake', focus: true do
     
       #Time travel to 8 days later
       expect(page).to have_content(7)
-      new_time = Time.now
+      new_time = Time.now + 8.days
       Timecop.travel(new_time)
-      sleep(100)
-      new_time == Time.now
+      click_link 'My List'
+      
+
       #check that the marked completed todo items have been deleted
-      # expect(page).to have_no_content("Go to market")
-      # expect(page).to have_no_content("Another market")
+      expect(page).to have_no_content("Go to market")
+      expect(page).to have_no_content("Another market")
 
     
   end
