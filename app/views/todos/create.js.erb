@@ -4,4 +4,5 @@
   $('.flash').after("<%= escape_javascript(render partial: 'layouts/flash') %>");
 <% else %>
   $('.flash').after("<%= escape_javascript(render partial: 'layouts/flash') %>");
+  $('.new-todo').effect('highlight', {color: 'red'})
 <% end %>

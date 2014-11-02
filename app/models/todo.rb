@@ -10,4 +10,6 @@ class Todo < ActiveRecord::Base
     Todo.where("created_at <= ?", Time.now - 7.days).destroy_all
   end
 
+  validates :body, length: { minimum: 5 }, presence: true
+
 end
