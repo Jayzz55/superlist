@@ -4,6 +4,7 @@ class Todo < ActiveRecord::Base
   validates :body, length: { minimum: 5 }, presence: true
 
   default_scope { order('updated_at ASC') }
+  scope :current_user_match, -> (user){where(user_id: user.id)}
 
   def days_left
     ((self.created_at + 8.days - Time.now).to_i)/60/60/24
