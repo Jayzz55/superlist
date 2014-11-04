@@ -1,5 +1,11 @@
 class TodosController < ApplicationController
   respond_to :html, :js
+  def index
+    @user = current_user
+    @todos = @user.todos  
+    @new_todo = @user.todos.build
+    authorize @user
+  end
 
   def create
     @todo = current_user.todos.build(todo_params)
@@ -14,7 +20,7 @@ class TodosController < ApplicationController
     end
 
     respond_with(@todo) do |format|
-      format.html { redirect_to current_user }
+      format.html { redirect_to todos_path }
     end
 
   end
@@ -30,18 +36,20 @@ class TodosController < ApplicationController
     end
 
     respond_with(@todo) do |format|
-      format.html { redirect_to current_user }
+      format.html { redirect_to todos_path }
     end
 
    end
 
   def destroy_multiple
-    if Todo.destroy(params[:todos])
+    
+
+    if Todo.current_user_match(current_user).destroy(params[:todos])
       flash[:notice] = "Completed todo items were removed."
-      redirect_to current_user
+      redirect_to todos_path
     else
       flash[:error] = "Completed todo items couldn't be deleted. Try again."
-      redirect_to current_user
+      redirect_to todos_path
     end
 
   end
