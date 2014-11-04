@@ -10,9 +10,9 @@ RSpec.describe Todo, :type => :model do
         create_list :todo, 2
       end
 
-      #check todo items 3 days later
+      #check todo items just before 7 days later
       expect(Todo.count).to eq(2)
-      Timecop.freeze(now + 3.days) do
+      Timecop.freeze(now + (7.days - 1.second)) do
         Todo.delete_old_items
         expect(Todo.count).to eq(2)
       end

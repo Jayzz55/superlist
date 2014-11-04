@@ -3,7 +3,6 @@ class TodosController < ApplicationController
 
   def create
     @todo = current_user.todos.build(todo_params)
-    @todo.user = current_user
     @new_todo = current_user.todos.build
     authorize @todo
 

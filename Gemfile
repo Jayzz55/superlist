@@ -18,10 +18,16 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
   gem 'capybara'
   gem 'pry-rails'
+  gem 'faker'
 end
 
 group :test do
   gem 'email_spec'
+  gem 'whenever', :require => false
+  gem 'timecop'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'pry-debugger', '~> 0.2.3'
 end
 
 # Use SCSS for stylesheets
@@ -68,22 +74,11 @@ gem 'devise'
 
 gem 'will_paginate', '~> 3.0.5'
 
-gem 'database_cleaner'
-
 gem 'pundit'
 
 gem 'redcarpet'
-
-gem 'factory_girl_rails', '~> 4.0'
-
-gem 'pry-debugger', '~> 0.2.3', :group => :test
 
 gem 'figaro', '1.0'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 
-gem 'faker'
-
-gem 'whenever', :require => false
-
-gem 'timecop'

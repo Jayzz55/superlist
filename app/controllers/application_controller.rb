@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-  after_filter :flash_headers
-
   include Pundit
+  after_action :flash_discard
+
+  
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
     current_user
   end
 
-  def flash_headers
+  def flash_discard
     # This will discontinue execution if Rails detects that the request is not
     # from an AJAX request, i.e. the header wont be added for normal requests
     return unless request.xhr?

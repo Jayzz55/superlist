@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-include Warden::Test::Helpers
-Warden.test_mode!
 
 describe 'Signing process' do
 
@@ -139,7 +137,7 @@ describe 'Create and mark off to do list' do
   end
 end
 
-describe 'custom-rake', focus: true do
+describe 'days_left counting how many days left' do
   it "checks to-do items automatically deleted after 7 days" do
       #Go to home page
       user = create(:user)

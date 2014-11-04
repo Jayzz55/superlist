@@ -1,5 +1,8 @@
 class Todo < ActiveRecord::Base
   belongs_to :user
+  
+  validates :body, length: { minimum: 5 }, presence: true
+
   default_scope { order('updated_at ASC') }
 
   def days_left
@@ -9,7 +12,5 @@ class Todo < ActiveRecord::Base
   def self.delete_old_items
     Todo.where("created_at <= ?", Time.now - 7.days).destroy_all
   end
-
-  validates :body, length: { minimum: 5 }, presence: true
 
 end

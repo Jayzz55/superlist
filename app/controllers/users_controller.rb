@@ -2,14 +2,10 @@ class UsersController < ApplicationController
 before_action :check_auth
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @todos = @user.todos  
     @new_todo = @user.todos.build
     authorize @user
-  end
-
-  def update
-
   end
 
   private
