@@ -3,7 +3,7 @@ class Todo < ActiveRecord::Base
   
   validates :body, length: { minimum: 5 }, presence: true
 
-  default_scope { order('updated_at ASC') }
+  default_scope { order('created_at ASC') }
   scope :current_user_match, -> (user){where(user_id: user.id)}
 
   def days_left
