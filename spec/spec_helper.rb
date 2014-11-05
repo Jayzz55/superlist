@@ -16,12 +16,20 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require "email_spec"
 
+require 'devise'
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
@@ -31,9 +39,6 @@ RSpec.configure do |config|
     # ...rather than:
     #   # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-
-    #add this to enable rspec testing on controller
-    config.include Devise::TestHelpers, type: :controller
 
   end
 
