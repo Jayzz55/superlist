@@ -42,11 +42,11 @@ class TodosController < ApplicationController
    end
 
   def destroy_multiple
-    @todos = Todo.current_user_match(current_user)
-    @checked_todos = Todo.checkbox_checked(params[:todos])
 
-    if @checked_todos.first != nil
-      if @todos.destroy(params[:todos])
+    ids = params[:todos]
+    
+    if ids.present?
+      if current_user.todos.where(id: ids).destroy_all
         flash[:notice] = "Completed todo items were removed."
         redirect_to todos_path
       else

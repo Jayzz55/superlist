@@ -35,44 +35,41 @@ RSpec.describe Todo, :type => :model do
     end
   end
 
-    describe "validation" do
-      it 'should validated todo' do
-          todo = Todo.new(body: "My")
-          expect(todo).to be_invalid
+  describe "validation" do
+    it 'should validated todo' do
+      todo = Todo.new(body: "My")
+      expect(todo).to be_invalid
+    end
+  end
+
+  describe ".days_left" do
+    it 'should count how many days left' do
+      now = Time.now
+      Timecop.freeze(now) do
+        @todo = create(:todo)
+      end
+
+      #check days_left counter just before 7 days later
+      expect(@todo.days_left).to eq(7)
+      Timecop.freeze(now + (7.days - 1.second)) do
+        expect(@todo.days_left).to eq(1)
       end
     end
+  end
 
-    describe ".days_left" do
-      it 'should count how many days left' do
-        now = Time.now
-        Timecop.freeze(now) do
-          @todo = create(:todo)
-        end
+  describe "default scope" do
+    it 'should be correctly ordered in ascending order' do
+      todos = []
+      todos << create(:todo)
+      todos << create(:todo)
+      todos << create(:todo)
+      sorted_todos = Todo.all
 
-        #check days_left counter just before 7 days later
-        expect(@todo.days_left).to eq(7)
-        Timecop.freeze(now + (7.days - 1.second)) do
-          expect(@todo.days_left).to eq(1)
-        end
-      end
+      expect(todos.first).to be == sorted_todos.first
+      expect(todos.second).to be == sorted_todos.second
+      expect(todos.last).to be == sorted_todos.last
     end
-
-    describe "default scope" do
-      before do
-        @todos = []
-
-        @todos << create(:todo)
-        @todos << create(:todo)
-        @todos << create(:todo)
-      end
-
-      it 'should be correctly ordered' do
-        @sorted_todos = Todo.all
-        expect(@todos.first).to be == @sorted_todos.first
-        expect(@todos.second).to be == @sorted_todos.second
-        expect(@todos.last).to be == @sorted_todos.last
-      end
-    end
+  end
 
 end
 
