@@ -1,7 +1,7 @@
 ## Superlist
 A self-destructing to-do list to keep you focused on the things that really matter.
 
-Created by : Jaya Wijono [Bloc](http://bloc.io).
+Created by : Jaya Wijono, as part of apprenticeship with [Bloc](http://bloc.io).
 
 ***Resources***:
 * gem "unicorn-rails" = ride Ruby on Rails faster with unicorn
@@ -22,3 +22,16 @@ Created by : Jaya Wijono [Bloc](http://bloc.io).
 * gem 'pry-rails' = To pry your code in the test
 * gem "better_errors" = For helping with better error call message
 * gem 'binding_of_caller' = For helping with better error call message
+
+
+Getting Superlist running
+------
+
+* run:
+```$ git clone https://github.com/Jayzz55/superlist```
+
+* Rename the file name *application.sample.yml* to *applicaiton.yml* in config directory
+* Enter your Sendgrid username and password, Devise secret key, and secret key base. 
+* Superlist is now ready to run
+
+* For more information, contact: jayzzwijono@yahoo.com
