@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  after_action :flash_discard
 
-  
-  protect_from_forgery with: :exception
+  after_action :flash_discard
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protect_from_forgery with: :exception
 
   rescue_from Pundit::NotAuthorizedError do |exception|
     redirect_to root_url, alert: exception.message

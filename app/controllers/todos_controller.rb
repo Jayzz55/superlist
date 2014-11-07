@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
   respond_to :html, :js
+  
   def index
     @user = current_user
     @todos = @user.todos  
