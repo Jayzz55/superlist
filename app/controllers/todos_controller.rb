@@ -6,7 +6,7 @@ class TodosController < ApplicationController
   def index
     @user = current_user
     @todos = @user.todos  
-    @new_todo = @user.todos.build
+    @new_todo = Todo.new
     authorize @user
   end
 
