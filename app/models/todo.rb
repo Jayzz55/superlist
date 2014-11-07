@@ -6,7 +6,9 @@ class Todo < ActiveRecord::Base
   default_scope { order('created_at ASC') }
 
   def days_left
-    ((self.created_at + 8.days - Time.now).to_i)/60/60/24
+    if self.created_at
+      ((self.created_at + 8.days - Time.now).to_i)/60/60/24
+    end
   end
 
   def self.delete_old_items
