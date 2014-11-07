@@ -1,9 +1,24 @@
-## Superlist: A self-destructing to-do list to keep you focused on the things that really matter.
+## Superlist
+A self-destructing to-do list to keep you focused on the things that really matter.
 
 Created by : Jaya Wijono [Bloc](http://bloc.io).
 
-<!-- ***Use case***
+***Resources***:
+* gem "unicorn-rails" = ride Ruby on Rails faster with unicorn
+* gem 'devise' = For user authentication setup
+* gem 'pundit' = For authorization setup
+* gem 'figaro', '1.0' = For better handling of sensitive data
+* gem 'bootstrap-sass', '~> 3.1.1' = Awesome bootstrap is used
 
-To-do lists are notorious for collecting junk: to-do items that you want to remember, but are not very important and thus get consistently put-off. To address the problem of to-do list clutter, we'll create an application that we'll call Blocitoff. Blocitoff will aim to keep to-do lists manageable by automatically deleting to-do items that have not been completed after 7 days. The hypothesis is that if the to-do item is not important enough to be completed in 7 days, it doesn't belong on your to-do list. -->
-
-<!-- This is the link to Jaya's Blocitoff web called **jaya-blocitoff** [Jaya's Bloccit](http://jaya-bloccit.herokuapp.com/) -->
+***Testing Resources***:
+* gem 'email_spec' = For testing the email mailer
+* gem 'whenever', :require => false = For scheduling cron tasks
+* gem 'timecop' = For testing by travelling through time
+* gem 'database_cleaner' = Clearing the database between each tests
+* gem 'factory_girl_rails', '~> 4.0' = For creating test factories
+* gem 'pry-debugger', '~> 0.2.3' = For debugging in testing
+* gem 'rspec-rails', '~> 3.1.0' = Awesome unit testing tools
+* gem 'capybara' = Integration test on your hand
+* gem 'pry-rails' = To pry your code in the test
+* gem "better_errors" = For helping with better error call message
+* gem 'binding_of_caller' = For helping with better error call message

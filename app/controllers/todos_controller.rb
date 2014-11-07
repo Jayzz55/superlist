@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
   respond_to :html, :js
+
+  before_action :authenticate_user!
   
   def index
     @user = current_user

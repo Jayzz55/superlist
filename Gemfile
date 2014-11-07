@@ -72,11 +72,7 @@ gem "unicorn-rails"
 
 gem 'devise'
 
-gem 'will_paginate', '~> 3.0.5'
-
 gem 'pundit'
-
-gem 'redcarpet'
 
 gem 'figaro', '1.0'
 
